@@ -1,7 +1,7 @@
 {
-  "name": "fcc-stock-price-checker",
+  "name": "stock-price-checker",
   "version": "0.0.1",
-  "description": "Fcc project on stock price checker",
+  "description": "project on stock price checker",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
