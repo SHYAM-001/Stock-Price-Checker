@@ -12,17 +12,15 @@ var fccTestingRoutes = require("./routes/fcctesting.js");
 var runner = require("./test-runner");
 
 var app = express();
+
+app.use(helmet());
 app.use(
-  helmet({
-    csp: {
-      directives: {
-        defaultSrc: ["'self'"],
-        styleSrc: ["'self'", "cdnjs.cloudflare.com"],
-        scriptSrc: ["'self'"],
-        styleSrc: ["'self'"]
-      }
-    },
-    hidePoweredBy: { setTo: "PHP 4.2.0" }
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'"]
+    }
   })
 );
 app.use("/public", express.static(process.cwd() + "/public"));
